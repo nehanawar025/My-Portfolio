@@ -29,13 +29,38 @@ nav ul{
 nav li{
     margin: 15px;
     font-size: 20px;
+    font-weight: bold;
     padding: 5px;
 }
 
 
-nav a{
+nav ul a{
+    position: relative;
     color: #2b616d;
+    text-transform: uppercase;
+    text-decoration: none;
+}
 
+nav ul a:hover{
+    color: #2696af;
+}
+
+nav ul a::after{
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 100%;
+    background: #f9652b;
+    top: 100%;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s ease;  /*transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];*/
+}
+
+nav ul a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 
@@ -43,7 +68,6 @@ nav a{
 {
     width: 64px;
     margin: 15px 22px;
-    
 }
 
 
@@ -61,6 +85,12 @@ nav a{
 }
 
 .my-info{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 1.5;
     color: #fb8a5e;
     
 }
@@ -83,6 +113,34 @@ nav a{
     color: #2b616d;
     
 }
+
+
+.button{
+    width: 150px;
+    text-align: center;
+    border:0;
+    padding: 0 20px;
+    background-color: #fb743ff5;
+    font-size: 28px;
+    font-weight: bolder;
+    margin: 20px;
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),  /* inset left,up,blur,color*/
+    inset -2px -2px 3px rgba(0,0,0,0.6) /* inset right,down,blur,color*/;
+    color: #438290;
+    text-shadow: 1px 1px 1px black  /*right,down,blur,color*/;
+    border-radius: 10px;
+    line-height: 1.9;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #fd8759;
+}
+
+.button:active{
+    box-shadow: inset -2px -2px 3px rgba(212, 210, 210, 0.794)
+}
+
+
 footer
 {
     width: 100%;
@@ -92,10 +150,11 @@ footer
 }
 
 footer ul{
-    list-style: none;
+    
 }
 
 footer a{
     color: #fb8a5e;
+    text-decoration: none;
     
 }
